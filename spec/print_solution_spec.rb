@@ -15,15 +15,15 @@ describe PrintSolution do
     let(:scenario_with_ranges) {PrintSolution.merge_array(multiple_arrays_with_ranges)}
     let(:multiple_arrays_with_ranges) {[[1,5], [2,2], [2,3], [7,10]]}
     it "merges when arrays intersect" do
-      expect(scenario_intersecting).to eql([1,6])
+      expect(scenario_intersecting).to eql([[1,6]])
     end
     it "returns arrays when do not intersect" do
       expect(scenario_not_intersecting).to eql([[1,5], [6,8]])
     end
-    it "both merges when arrays intersect and returns when do not intersect" do
+    it "does nothing when no intersection" do
       expect(scenario_multiple).to eql([[1,3], [4,5], [6,7]])
     end
-    it "does nothing when no intersection" do
+    it "both merges when arrays intersect and returns when do not intersect" do
       expect(scenario_multiple_intersecting).to eql([[1,6], [8,9]])
     end
     it "merges ranges in the middle of minmax" do

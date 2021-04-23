@@ -8,6 +8,6 @@ case_5 = [[1,5], [2,2], [2,3], [7,10]] # = [[1,5], [7,10]]
 
 # p PrintSolution.merge_array(case_1)
 # p PrintSolution.merge_array(case_2)
-p PrintSolution.merge_array(case_3)
+# p PrintSolution.merge_array(case_3)
 p PrintSolution.merge_array(case_4)
 p PrintSolution.merge_array(case_5)

@@ -6,23 +6,44 @@ require 'byebug'
 require 'benchmark'
 
 class PrintSolution
-  def self.merge_array(array_of_arrays)
+  def self.merge_array(arrays)
+    # result = []
+    # arrays.each_with_index do |arr, i|
+    #   if i < arrays.length - 1
+    #     next_array = arrays[i + 1]
+    #     if arr[1] > next_array[0]
+    #       new_array = arr + next_array
+    #       new_array = new_array.minmax
+    #       result << new_array
+    #     elsif arr[1] < next_array[0]
+    #       # new_array = arr, next_array
+    #       # result << new_array
+    #       result << arr
+    #     end
+    #   end
+    #   result
+    # end
+
+    idx = 0
     result = []
-    array_of_arrays.each_with_index do |arr, index|
-      if index < array_of_arrays.length - 1
-        next_array = array_of_arrays[index + 1]
-        if arr[1] > next_array[0]
-          new_array = arr + next_array
-          new_array = new_array.minmax unless new_array.nil?
-          result << new_array unless new_array.nil?
-        elsif arr[1] < next_array[0]
-          # new_array = arr, next_array
-          # result << new_array unless new_array.nil?
-          result << arr unless arr.nil?
-          result << next_array
-        end
+    arrays_length = arrays.length - 1
+    arrays_length.times do
+      eval_merge = arrays[idx], arrays[idx+1]
+      if eval_merge[0][1] >= eval_merge[1][0] # change eval_merge[1][0] to loop over next elements
+        eval_merge = eval_merge.reduce(:+).minmax
+        result << eval_merge
+      elsif eval_merge[0][1] < eval_merge[1][0]
+        result << eval_merge[0] unless result.include?(eval_merge[0])
+        result << eval_merge[1] unless result.include?(eval_merge[1])
       end
+      idx += 1
     end
     result
+
+    # byebug
+  end
+
+  def self.scan_intersections
+
   end
 end
