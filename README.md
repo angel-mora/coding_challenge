@@ -1,57 +1,35 @@
-# Project Name
+# Coding Challenge Solution
 
-> One paragraph statement about the project.
-
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
+> A Ruby project to solve a coding challenge with best practices.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
+- Ruby
+- Rspec
+- GitHub Actions
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+```bash
+git clone https://github.com/angel-mora/coding_challenge.git
+cd coding_challenge
+ruby bin/main.rb
+```
 
-### Setup
+To run tests, inside coding_challenge folder just to the following: 
 
-### Install
+```bash
+rspec
+```
 
-### Usage
+## Author
 
-### Run tests
+👤 **Angel Mora**
 
-### Deployment
-
-
-
-## Authors
-
-👤 **Author1**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [angelmora](https://github.com/angelmora)
+- Linkedin: [angelmoradev](https://linkedin.com/angelmoradev)
 
 ## 🤝 Contributing
 
@@ -66,8 +44,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Thanks to Microverse!
 
 ## 📝 License
 
