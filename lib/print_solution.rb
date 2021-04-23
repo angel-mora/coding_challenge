@@ -6,19 +6,21 @@ require 'byebug'
 require 'benchmark'
 
 class PrintSolution
-
-  #solution by repositioning
   def self.merge_array(array_of_arrays)
     result = []
     array_of_arrays.each_with_index do |arr, index|
       if index < array_of_arrays.length - 1
-        new_array = arr + array_of_arrays[index + 1] # unless index + 1 > array_of_arrays.length
-        new_array = new_array.minmax
-      # new_array = [first_arr[0], second_arr[1]]
-      # new_array if first_arr[1] > second_arr[0]
+        next_array = array_of_arrays[index + 1]
+        if arr[1] > next_array[0]
+          new_array = arr + next_array
+          new_array = new_array.minmax unless new_array.nil?
+          result << new_array unless new_array.nil?
+        elsif arr[1] < next_array[0]
+          new_array = arr, next_array
+          result << new_array unless new_array.nil?
+        end
       end
-    result << new_array unless new_array.nil?
     end
-    result
+    result[0]
   end
 end

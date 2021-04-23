@@ -15,7 +15,7 @@ describe PrintSolution do
     let(:scenario_with_ranges) {PrintSolution.merge_array(multiple_arrays_with_ranges)}
     let(:multiple_arrays_with_ranges) {[[1,5], [2,2], [2,3], [7,10]]}
     it "merges when arrays intersect" do
-      expect(scenario_intersecting).to eql([[1,6]])
+      expect(scenario_intersecting).to eql([1,6])
     end
     it "returns arrays when do not intersect" do
       expect(scenario_not_intersecting).to eql([[1,5], [6,8]])
