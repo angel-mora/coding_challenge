@@ -30,6 +30,8 @@ class PrintSolution
     arrays_length.times do
       eval_merge = arrays[idx], arrays[idx+1]
       if eval_merge[0][1] >= eval_merge[1][0] # change eval_merge[1][0] to loop over next elements
+        # eval_merge[each][0] something like this
+        
         eval_merge = eval_merge.reduce(:+).minmax
         result << eval_merge
       elsif eval_merge[0][1] < eval_merge[1][0]
