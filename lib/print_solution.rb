@@ -1,6 +1,8 @@
-# Tenemos un array con arrays adentro de length 2 en el cual se tienen que mergear los que se solapen
+# Merge pair of arrays length 2 if they overlap
 # Performance / buenas practicas
 # Rspec tests with dummy arrays
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
 
 class PrintSolution
   def self.merge_array(arrays)
@@ -27,3 +29,6 @@ class PrintSolution
     arrays
   end
 end
+
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
