@@ -6,32 +6,31 @@ require 'byebug'
 require 'benchmark'
 
 class PrintSolution
+
+  def self.compare_base_with_remaining(base,nxt,tmp)
+    if base[1] >= nxt[0]
+      tmp[1..-1].each do |nxt|
+        break if base[1] < nxt[0] 
+        tmp -= [base, nxt]
+        base = [base, nxt].reduce(:+).minmax
+        tmp.unshift(base)
+      end
+    elsif base[1] < nxt[0]
+      tmp << base unless tmp.include?(base || merged)
+      tmp << nxt unless tmp.include?(nxt || merged)
+    end
+  end
+
   def self.merge_array(arrays)
     tmp = arrays
-    #index = 0
-    arrays.each_with_index do |array, index|
+    tmp.each_with_index do |_, index|
       base = tmp[index]
       nxt = tmp[index + 1]
       arrays_length = tmp.length - 1
       break unless index < arrays_length
 
-      if base[1] >= nxt[0]
-        tmp -= [base, nxt]
-        base = [base, nxt].reduce(:+).minmax
-        tmp.unshift(base)
-        # byebug
-        
-        # # testing inside evaluation
-        # if base[1] >= tmp[index][0]
-        #   base = [base, nxt].reduce(:+).minmax
-        #   tmp << base unless tmp.include?(base)
-        # end
-        # puts tmp
-
-      elsif base[1] < nxt[0]
-        tmp << base unless tmp.include?(base || merged)
-        tmp << nxt unless tmp.include?(nxt || merged)
-      end
+      compare_base_with_remaining(base,nxt,tmp)
+      
     end
     tmp
   end
